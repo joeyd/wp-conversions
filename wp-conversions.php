@@ -1,6 +1,6 @@
 <?php /**
  * Plugin Name: WP Conversions
- * Plugin URI: http://www.nologyinteractive.com
+ * Plugin URI: https://github.com/joeyd/WP-Conversions
  * Description: Allows for creating redirects with conversion code loading prior to the redirect.
  * Version: 1.0
  * Author: Joey Durham
