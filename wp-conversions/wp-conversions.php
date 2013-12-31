@@ -163,7 +163,7 @@ function nolo_save_data($post_id) {
     }
 }
 
-// add custom template in plugin folder
+// add custom template path to point to the plugin folder
 add_filter( 'single_template', 'get_wp_conversion_template' );
 if( !function_exists('get_wp_conversion_template') ) {
     function get_wp_conversion_template($single_template) {
