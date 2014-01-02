@@ -20,16 +20,29 @@
 global $post;
 $conversion_code = get_post_meta($post->ID,'nolo_conversion_code', true);
 $redirect_url = get_post_meta($post->ID,'nolo_conversion_redirect_url', true);
-
-if ($conversion_code != '') {
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Redirecting...</title>
+<?php if (isset($conversion_code)) {
     echo $conversion_code;
 }
+ ?>
+ <?php if (isset($redirect_url)) { ?>
+    <META http-equiv="refresh" content="3;URL=<?php echo $redirect_url; ?>">
+ <?php } ?>
+ <meta name="robots" content="noindex">
+</head>
+<body>
+Redirecting...
+<script>
+<!--
+<?php if (isset($redirect_url)) { ?>
+    window.location = "<?php echo $redirect_url ?>";
+<?php } ?>
+//-->
+</script>
 
-if ($redirect_url != '') {
-    header("Location: $redirect_url");
-}
-
-?>
-
-
-
+</body>
+</html>
