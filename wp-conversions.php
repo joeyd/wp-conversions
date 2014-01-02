@@ -69,14 +69,14 @@ $meta_box = array(
     'fields' => array(
          array(
             'name' => 'Conversion Code',
-            'desc' => 'Copy and paste the conversion code.',
+            'desc' => 'Copy and paste your conversion code.',
             'id' => $prefix . 'conversion_code',
             'type' => 'textarea',
             'std' => ''
         ),
         array(
             'name' => 'Redirect URL',
-            'desc' => 'Enter the the full URL to redirect to. (http://example.com/example-page)',
+            'desc' => 'Enter the full URL to redirect to. (http://example.com/example-page)',
             'id' => $prefix . 'conversion_redirect_url',
             'type' => 'text',
             'std' => ''
