@@ -25,10 +25,7 @@ $redirect_url = get_post_meta($post->ID,'nolo_conversion_redirect_url', true);
 <html lang="en">
 <head>
   <title>Redirecting...</title>
-<?php if (isset($conversion_code)) {
-    echo $conversion_code;
-}
- ?>
+
  <?php if (isset($redirect_url)) { ?>
     <META http-equiv="refresh" content="3;URL=<?php echo $redirect_url; ?>">
  <?php } ?>
@@ -36,13 +33,20 @@ $redirect_url = get_post_meta($post->ID,'nolo_conversion_redirect_url', true);
 </head>
 <body>
 Redirecting...
+<?php if (isset($redirect_url)) { ?>
+<a href="<?php echo $redirect_url ?>">If you are not redirected click here.</a>
+<?php } ?>
+
+<?php if (isset($conversion_code)) {
+    echo $conversion_code;
+}
+ ?>
+ <?php if (isset($redirect_url)) { ?>
 <script>
 <!--
-<?php if (isset($redirect_url)) { ?>
-    window.location = "<?php echo $redirect_url ?>";
-<?php } ?>
+    //window.location = "<?php echo $redirect_url ?>";
 //-->
 </script>
-
+<?php } ?>
 </body>
 </html>
