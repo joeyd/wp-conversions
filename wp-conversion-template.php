@@ -24,28 +24,28 @@ $redirect_url = get_post_meta($post->ID,'nolo_conversion_redirect_url', true);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Redirecting...</title>
-
- <?php if (isset($redirect_url)) { ?>
-    <META http-equiv="refresh" content="3;URL=<?php echo $redirect_url; ?>">
- <?php } ?>
- <meta name="robots" content="noindex">
+    <title>Redirecting...</title>
+    <?php if (isset($redirect_url)) { //fall back if user's JS is disabled?>
+     <noscript>
+        <meta http-equiv="refresh" content="3;URL=<?php echo $redirect_url; ?>">
+    </noscript>
+    <?php } ?>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
-Redirecting...
+<!-- Redirecting...
 <?php if (isset($redirect_url)) { ?>
-<a href="<?php echo $redirect_url ?>">If you are not redirected click here.</a>
-<?php } ?>
+If you are not redirected please <a href="<?php echo $redirect_url ?>">click here</a>.
+<?php } ?> -->
 
 <?php if (isset($conversion_code)) {
     echo $conversion_code;
-}
- ?>
- <?php if (isset($redirect_url)) { ?>
+} ?>
+<?php if (isset($redirect_url)) { ?>
 <script>
-<!--
-    //window.location = "<?php echo $redirect_url ?>";
-//-->
+jQuery(window).bind("load", function() {
+    window.location = "<?php echo $redirect_url ?>";
+});
 </script>
 <?php } ?>
 </body>
