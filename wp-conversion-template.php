@@ -40,7 +40,7 @@ $redirect_url = get_post_meta($post->ID,'nolo_conversion_redirect_url', true);
     } ?>
     <?php if (isset($redirect_url)) { ?>
     <script>
-    jQuery(window).bind("load", function() {
+        jQuery(window).on('load', function(){
         window.location = "<?php echo $redirect_url ?>";
     });
     </script>
