@@ -68,8 +68,15 @@ $meta_box = array(
     'priority' => 'high',
     'fields' => array(
          array(
-            'name' => 'Conversion Code',
-            'desc' => 'Copy and paste your conversion code.',
+            'name' => 'Conversion code for &lt;head&gt;',
+            'desc' => 'Paste your code here to have it render inside the &lt;head&gt;&lt;/head&gt; tags.',
+            'id' => $prefix . 'conversion_code_head',
+            'type' => 'textarea',
+            'std' => ''
+        ),
+        array(
+            'name' => 'Conversion code for &lt;body&gt;',
+            'desc' => 'Paste your code here to have it render inside the &lt;body&gt;&lt;/body&gt; tags.',
             'id' => $prefix . 'conversion_code',
             'type' => 'textarea',
             'std' => ''
